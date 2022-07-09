@@ -1,4 +1,4 @@
-FROM casjaysdev/debian:latest as dictbuild
+FROM casjaysdevdocker/debian:latest as dictbuild
 
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
@@ -20,12 +20,12 @@ ARG BUILD_DATE="$(date +'%Y-%m-%d %H:%M')"
 LABEL \
   org.label-schema.name="dictd" \
   org.label-schema.description="Dictionary server" \
-  org.label-schema.url="https://github.com/casjaysdev/dictd" \
-  org.label-schema.vcs-url="https://github.com/casjaysdev/dictd" \
+  org.label-schema.url="https://hub.docker.com/r/casjaysdevdocker/dictd" \
+  org.label-schema.vcs-url="https://github.com/casjaysdevdocker/dictd" \
   org.label-schema.build-date=$BUILD_DATE \
   org.label-schema.version=$BUILD_DATE \
   org.label-schema.vcs-ref=$BUILD_DATE \
-  org.label-schema.license="MIT" \
+  org.label-schema.license="WTFPL" \
   org.label-schema.vcs-type="Git" \
   org.label-schema.schema-version="1.0" \
   org.label-schema.vendor="CasjaysDev" \
