@@ -15,7 +15,7 @@ COPY ./usr/bin/entrypoint.sh /usr/bin/entrypoint.sh
 RUN mkdir -p /var/log/dictd && touch /var/log/dictd/server.log && chmod -Rfv 777 /etc/dictd /var/log/dictd
 
 FROM dictbuild
-ARG BUILD_DATE="$(date +'%Y-%m-%d %H:%M')" 
+ARG BUILD_DATE="$(date +'%Y-%m-%d %H:%M')"
 
 LABEL \
   org.label-schema.name="dictd" \
@@ -29,7 +29,7 @@ LABEL \
   org.label-schema.vcs-type="Git" \
   org.label-schema.schema-version="1.0" \
   org.label-schema.vendor="CasjaysDev" \
-  maintainer="CasjaysDev <docker-admin@casjaysdev.com>" 
+  maintainer="CasjaysDev <docker-admin@casjaysdev.com>"
 
 ENV HOSTNAME dictd
 
@@ -37,6 +37,6 @@ EXPOSE 2628
 
 VOLUME [ "/config" ]
 
-HEALTHCHECK CMD ["/usr/bin/entrypoint.sh", "healthcheck"]
+HEALTHCHECK --interval=15s --timeout=3s CMD ["/usr/bin/entrypoint.sh", "healthcheck"]
 
 ENTRYPOINT ["/usr/bin/entrypoint.sh"]
