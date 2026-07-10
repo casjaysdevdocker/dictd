@@ -19,8 +19,8 @@ dockermgr update dictd
 ## Install and run container
   
 ```shell
-dockerHome="/var/lib/srv/$USER/docker/casjaysdevdocker/dictd/dictd/latest/rootfs"
-mkdir -p "/var/lib/srv/$USER/docker/dictd/rootfs"
+dockerHome="/srv/$USER/docker/casjaysdevdocker/dictd/dictd/latest/rootfs"
+mkdir -p "/srv/$USER/docker/dictd/rootfs"
 git clone "https://github.com/dockermgr/dictd" "$HOME/.local/share/CasjaysDev/dockermgr/dictd"
 cp -Rfva "$HOME/.local/share/CasjaysDev/dockermgr/dictd/rootfs/." "$dockerHome/"
 docker run -d \
@@ -47,8 +47,8 @@ services:
       - TZ=America/New_York
       - HOSTNAME=dictd
     volumes:
-      - "/var/lib/srv/$USER/docker/casjaysdevdocker/dictd/dictd/latest/rootfs/data:/data:z"
-      - "/var/lib/srv/$USER/docker/casjaysdevdocker/dictd/dictd/latest/rootfs/config:/config:z"
+      - "/srv/$USER/docker/casjaysdevdocker/dictd/dictd/latest/rootfs/data:/data:z"
+      - "/srv/$USER/docker/casjaysdevdocker/dictd/dictd/latest/rootfs/config:/config:z"
     ports:
       - 80:80
     restart: always
